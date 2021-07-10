@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello World</title>
     <link rel="stylesheet" href="./style.css" />
-    <script defer="popup.js"></script>
-  </head>
+    
   <body>
     <div class="flex-container">
       <div class="flex-item">
@@ -18,10 +17,14 @@
       <div class="flex-item">
         <label>Save as (name): </label>
         <input type="text" id="name" />
+        <input type="text" id="search" />
       </div>
       <div class="flex-item">
         <button type="submit" id="save-btn">Save</button>
+        <button type="submit" id="search-btn">Search</button>
       </div>
     </div>
+    <script src="./popup.js"></script>
+  </head>
   </body>
 </html>

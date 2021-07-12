@@ -22,8 +22,30 @@ body {
   margin: 8px 0;
 }
 
-.flex-item:nth-child(3) {
+textarea {
+  resize: vertical;
+}
+
+/* .flex-item:nth-child(3) {
   align-self: center;
+} */
+
+#categoryInput {
+  display: flex;
+}
+
+.item-2 {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.item-2 div {
+  margin-right: 15px;
+}
+
+#categoryInput input {
+  margin-bottom: -4px;
 }
 
 #name {
@@ -32,10 +54,31 @@ body {
 #content {
   margin-top: 5px;
 }
-#save-btn {
+
+/* #save-btn,
+#append-btn,
+#search-btn {
   padding: 4px 11px;
   border: none;
   border-radius: 3px;
   background-color: #0f69ff;
   color: white;
+  cursor: pointer;
+} */
+
+#userQueryInput {
+  margin-left: 15px;
+}
+#buttons {
+  align-self: center;
+}
+
+#Ok,
+#categoryButton {
+  padding: 4px 11px;
+  border: none;
+  border-radius: 3px;
+  background-color: #0f69ff;
+  color: white;
+  cursor: pointer;
 }

@@ -8,21 +8,48 @@
     <link rel="stylesheet" href="./style.css" />
     
   <body>
+
+    
     <div class="flex-container">
       <div class="flex-item">
         <label>Content: </label>
         <br />
         <textarea id="content" rows="7" cols="60"></textarea>
       </div>
-      <div class="flex-item">
-        <label>Save as (name): </label>
-        <input type="text" id="name" />
-        <input type="text" id="search" />
+
+      <div class="flex-item" id="categoryInput">
+        <div class="item-1">
+          <h3 id="select">Select one: </h3>
+        </div>
+
+        <div class="item-2">
+          <div class="radioB">
+            <input type="radio" name="category" id="new" value="new">
+            <label for="new">New</label>
+          </div>
+          <div class="radioB">
+            <input type="radio" name="category" id="edit" value="edit">
+            <label for="new">Edit</label>
+          </div>
+          <div class="radioB">
+            <input type="radio" name="category" id="delete" value="delete">
+            <label for="new">Delete</label>
+          </div>
+        </div>
       </div>
+
+
       <div class="flex-item">
-        <button type="submit" id="save-btn">Save</button>
-        <button type="submit" id="search-btn">Search</button>
+        <span id="display">Content Name: </span>
+        <input type="text" id="userQueryInput" />
       </div>
+
+
+      <div class="flex-item" id="buttons">
+        <button id="Ok" type="submit">Ok</button>
+        <button id="categoryButton" type="submit"></button>
+      </div>
+      
     </div>
     <script src="./popup.js"></script>
   </head>

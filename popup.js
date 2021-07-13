@@ -6,20 +6,22 @@ let searchI = document.getElementById('search')
 let save_btn = document.getElementById('save-btn')
 let search_btn = document.getElementById('search-btn');
 let append_btn = document.getElementById('append-btn');
+let radio_btns = document.getElementById('categoryInput')
 
 
 window.onload = (e) => {
-	content.disabled = true;
+    content.disabled = true;
     userQuery.disabled = true;
-    
+
     btn.style.display = 'none'
 }
 
 
 ok.addEventListener("click", () => {
-    if(document.getElementById('new').checked){
+    if (document.getElementById('new').checked) {
         content.disabled = false;
         userQuery.disabled = false;
+        radio_btns.style.display = 'none'
         ok.style.display = 'none'
         btn.innerHTML = "Save"
         btn.style.display = 'initial'
@@ -27,30 +29,36 @@ ok.addEventListener("click", () => {
         btn.addEventListener("click", () => {
             let userContent = content.value;
             let fileName = userQuery.value;
-            localStorage.setItem(fileName, userContent);
-            console.log(localStorage.getItem(fileName))
+            if (localStorage.getItem(fileName) != null) {
+                console.log(`There is already a content named ${fileName}`)
+            }
+            else {
+                localStorage.setItem(fileName, userContent);
+                console.log(localStorage.getItem(fileName))
+                window.close()
+            }
         })
     }
 
-    else if(document.getElementById('edit').checked){
+    else if (document.getElementById('edit').checked) {
         userQuery.disabled = false;
         ok.style.display = 'none'
+        radio_btns.style.display = 'none'
         btn.innerHTML = "Edit"
         btn.style.display = 'initial'
 
         btn.addEventListener("click", () => {
             let fileName = userQuery.value;
-            if(fileName == null)
-            {
+            if (fileName == null) {
                 console.log("Please mention Content Name")
             }
-            else{
+            else {
                 var findContent = localStorage.getItem(fileName)
-                if(findContent == null){
+                if (findContent == null) {
                     console.log("Sorry, there is no content named as such")
                 }
 
-                else{
+                else {
                     content.disabled = false;
                     content.innerText = findContent;
                     btn.innerHTML = "Confirm"
@@ -59,6 +67,7 @@ ok.addEventListener("click", () => {
                         let newContent = content.value
                         localStorage.setItem(fileName, newContent)  // Here content.value will be the new value edited by the user
                         console.log(localStorage.getItem(fileName))
+                        window.close()
                     })
                 }
             }
@@ -66,28 +75,62 @@ ok.addEventListener("click", () => {
 
     }
 
-    else if(document.getElementById('delete').checked){
+    else if (document.getElementById('view').checked) {
         userQuery.disabled = false;
         ok.style.display = 'none'
+        radio_btns.style.display = 'none'
+        btn.innerHTML = "View"
+        btn.style.display = 'initial'
+
+        btn.addEventListener("click", () => {
+            let fileName = userQuery.value;
+            if (fileName == null) {
+                console.log("Please mention Content Name")
+            }
+            else {
+                var findContent = localStorage.getItem(fileName)
+                if (findContent == null) {
+                    console.log("Sorry, there is no content named as such")
+                }
+
+                else {
+                    content.disabled = false;
+                    content.innerText = findContent;
+                    btn.innerHTML = "Done"
+                    btn.addEventListener("click", () => {
+                        window.close()
+                    })
+                }
+            }
+        })
+    }
+
+
+
+    else if (document.getElementById('delete').checked) {
+        userQuery.disabled = false;
+        ok.style.display = 'none'
+        radio_btns.style.display = 'none'
         btn.innerHTML = "Delete"
         btn.style.display = 'initial'
 
         btn.addEventListener("click", () => {
             let fileName = userQuery.value;
             let findContent = localStorage.getItem(fileName)
-            if(findContent == null){
+            if (findContent == null) {
                 console.log("There is no file named such.")
             }
-            else{
+            else {
                 localStorage.removeItem(fileName)
                 console.log("Deleted")
+                window.close()
             }
 
         })
 
     }
 
-    else{
+    else {
         console.log("Please select a option")
     }
 })

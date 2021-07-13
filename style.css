@@ -6,9 +6,12 @@
 
 body {
   width: 500px;
-  background-color: rgba(0, 0, 0, 0.77);
+  /* background-color: #151424; */
+  /* opacity: 0.7; */
+  background-color: rgba(21,20,36, 0.85);
   color: white;
   font-size: 1.1rem;
+  z-index: -1;
 }
 
 .flex-container {
@@ -24,6 +27,9 @@ body {
 
 textarea {
   resize: vertical;
+  border-radius: 3px;
+  /* background-color: white; */
+  z-index: 1000;
 }
 
 /* .flex-item:nth-child(3) {
@@ -34,6 +40,10 @@ textarea {
   display: flex;
 }
 
+.item-1 h4 {
+  color: red;
+}
+
 .item-2 {
   display: flex;
   align-items: center;
@@ -41,9 +51,12 @@ textarea {
 }
 
 .item-2 div {
-  margin-right: 15px;
+  /* margin-top: 3px; */
+  margin-right: 10px;
 }
-
+.item-2 .ok-btn{
+  margin-left: 5px;
+}
 #categoryInput input {
   margin-bottom: -4px;
 }
@@ -68,6 +81,8 @@ textarea {
 
 #userQueryInput {
   margin-left: 15px;
+  border-radius: 5px;
+  line-height: 1.2rem;
 }
 #buttons {
   align-self: center;
